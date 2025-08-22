@@ -1,3 +1,7 @@
+:root {
+  --main-bg: rgb(241, 241, 241);
+}
+
 body {
   background-color: #dd3434 !important;
   color: #333;
@@ -19,6 +23,10 @@ section {
   }
 }
 
+#loading {
+  width: 100px!important;
+}
+
 #articles {
   color: white;
   margin-bottom: 20px;
@@ -30,5 +38,5 @@ section {
 }
 
 #contacto {
-  background-color: aliceblue;
+  background-color: var(--main-bg)
 }
