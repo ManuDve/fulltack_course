@@ -1,5 +1,5 @@
 const teamTable = document.getElementById("teams");
-
+const loadingGif = document.getElementById("loading");
 async function getBundesligaTeams() {
   const url = "https://api.openligadb.de/getbltable/bl1/2024";
   const options = {
@@ -8,12 +8,15 @@ async function getBundesligaTeams() {
 
   try {
     // todo: add loading
+    teamTable.style.display = "none";
     const response = await fetch(url, options);
     const data = await response.json();
     data.forEach(({teamName, teamIconUrl, points}) => {
         createTableRow(teamTable, teamName, teamIconUrl, points)
         console.log(teamName, teamIconUrl, points);
     });
+    teamTable.style.display = "block";
+    loadingGif.style.display = "none";
   } catch (err) {
     console.log(err);
   }
